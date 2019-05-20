@@ -1,0 +1,83 @@
+body{
+	background-color: #292d43;
+}
+
+.navbar{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 35%;
+	padding-top: 50px;
+}
+
+.logo{
+	flex: 1;
+	width: 60%;
+}
+
+.filler{
+	flex: 1;
+}
+
+.search{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 56%;
+	left: 10%;
+	width: 80%;
+}
+
+.search-main{
+	display: flex;
+	flex-direction: row;
+}
+
+.searchbar{
+	width: 100%;
+	padding-bottom: 10px;
+	border-style: none none solid none;
+	background-color: #292d43;
+	border-color: white;
+	outline: none;
+}
+
+.button-submit{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	margin-left: 15px;
+	width: 100px;
+	border-radius: 5px;
+	text-align: center;
+	font-family: Segoe UI;
+	font-size: 17px;
+}
+
+.button-submit:hover{
+	cursor: pointer;
+}
+
+input[type=text]{
+    font-size: 25px;
+    padding-left: 20px;
+    font-family: Segoe UI;
+    color: white;
+    box-sizing: border-box;
+}
+
+.search-radio{
+	display: flex;
+	flex-direction: row;
+}
+
+.radio-option{
+	color: white;
+	font-family: Segoe UI;
+	font-size: 20px;
+	padding: 20px;
+}
+
+.message{
+	color: white;
+}

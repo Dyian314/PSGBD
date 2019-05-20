@@ -1,0 +1,88 @@
+<html>
+	<link rel="icon" href="../images/crown-favicon.png">
+	<link rel="stylesheet" type="text/css" href=../stylesheets/tables-style.css>
+
+<head>
+	<title>QUEEN | Tables</title>
+</head>
+
+<body>
+	<div class="main">
+		<form method="POST" action="">
+		<div class="navbar">
+			<a href="index.html" class="logo"><img src="../images/Logo.png" width="200px"></a>
+			<input type="submit" name="products" class="tab products" value="Products">
+			<input type="submit" name="stores" class="tab stores" value="Stores">
+			<input type="submit" name="customers" class="tab customers" value="Customers">
+			<input type="submit" name="employees" class="tab employees" value="Employees">
+			<input type="submit" name="statistics" class="tab statistics" value="Statistics">
+		</div>
+
+		<div class="infotable">
+			<?php
+				include '../scripts/connect.php';
+				include '../scripts/execute_query.php';
+
+				$conn = connect();
+				$table = 'products';
+
+				if(isset($_POST['products'])){
+					$table = "products";
+				}
+
+				if(isset($_POST['stores'])){
+					$table = "stores";
+				}
+
+				if(isset($_POST['customers'])){
+					$table = "customers";
+				}
+
+				if(isset($_POST['employees'])){
+					$table = "employees";
+				}
+
+				$result = get_data_from_table($conn, $table);
+
+				while(($row = oci_fetch_array($result, OCI_ASSOC+OCI_RETURN_NULLS)) != false){
+					if(!isset($table_columns)){
+						$table_columns = array_keys($row);
+							
+						?>
+
+						<div class="table">
+
+						<?php
+						foreach($table_columns as $column){
+						?>
+						
+							<div class="items"><b><?= $column ?></b></div>
+						<?php
+								}
+						?>
+						</div>
+
+						<?php
+							}
+						?>
+						
+
+					<div class="table">
+						<?php
+							foreach($table_columns as $column){
+						?>
+								<div class="items"><?= $row[$column] ?></div>
+						<?php
+							}
+						?>
+					</div>
+			<?php
+				}
+			?>
+
+		</div>
+	</div>
+	
+</body>
+
+</html>

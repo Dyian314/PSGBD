@@ -1,0 +1,73 @@
+body{
+	background-color: #292d43;
+}
+
+.main{
+	display: flex;
+	flex-direction: column;
+}
+
+.navbar{
+	display: flex;
+	flex-direction: row;
+	padding-top: 20px;
+
+	border-bottom: solid;
+	border-bottom-color: white;
+	border-radius: 5px;
+}
+
+.infotable{
+	height: 50%;
+	margin-top: 30px;
+}
+
+.table{
+	display: flex;
+	flex-direction: row;
+
+	background-color: #cccccc;
+	width: 90%;
+	margin-left: 5%;
+}
+
+.items{
+	font-family: Segoe UI;
+	font-size: 25px;
+	border: solid;
+	flex: 32%;
+	text-align: center;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+ 	overflow: hidden;
+}
+
+.tab{
+	flex: 25%;
+	text-align: center;
+	margin-bottom: 10px;
+	color: white;
+	font-size: 30px;
+	font-family: Segoe UI;
+
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.tab:hover{
+	cursor: pointer;
+}
+
+.logo{
+	width: 200px;
+	height: 100px;
+}
+
+.logo:hover{
+	cursor: pointer;
+}

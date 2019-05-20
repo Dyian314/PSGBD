@@ -1,0 +1,44 @@
+<html>
+
+<head>
+	<link rel="icon" href="../images/crown-favicon.png">
+	<link rel="stylesheet" type="text/css" href=../stylesheets/index.css>
+	<title>
+		QUEEN | Your online shop
+	</title>
+</head>
+
+<body>
+	
+	<div class="navbar">
+		<div class="filler"></div>
+		<img src="../images/Logo.png" class="logo">
+		<div class="filler"></div>
+	</div>
+
+	<form action="../scripts/redirect.php" method="POST">
+		<div class="search">
+			<div class="search-main">
+				<input type="text" name="searchbar" class="searchbar" autocomplete="off" placeholder="Search..">
+				<input type="submit" class="button-submit" value="Search">
+			</div>
+
+			<div class="search-radio">
+				<div class="radio-option">
+					<input type="radio" name="option" value="store" checked="checked">Search stores that have your item in
+				</div>
+				<div class="radio-option">
+					<input type="radio" name="option" value="product">Search nearby stores
+				</div>
+
+				<div class="radio-option">
+					<input type="radio" name="option" value="other">Other
+				</div>
+			</div> 
+		</div>
+	
+	</form>
+
+</body>
+
+</html>
