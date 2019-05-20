@@ -1,0 +1,102 @@
+body{
+	background-color: #292d43;
+}
+
+.main{
+	display: flex;
+	flex-direction: column;
+
+	height: 100%;
+}
+
+.navbar{
+	flex: 5%;
+}
+
+.main-frame{
+	flex: 90%;
+	background-color: #cccccc;
+	height: 80%;
+	margin: 50px;
+
+	border-radius: 20px;
+}
+
+.item-container{
+	display: flex;
+	flex-direction: row;
+
+	height: 100%;
+	width: 100%;
+}
+
+.item-image{
+	flex: 30%;
+	height: 92%;
+	margin: 20px;
+}
+
+.image{
+	height: 100%;
+	width: 100%;
+}
+
+.item-info{
+	flex: 70%;
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+
+	font-size: 30px;
+	font-family: Segoe UI;
+}
+
+.input-qty{
+	width: 50%;
+	height: 30px;
+	font-size: 20px;
+	font-family: Segoe UI;
+}
+
+.item-info-text{
+	min-height: 420px;	
+}
+
+.input-button{
+	width: 200px;
+	height: 40px;
+	margin-top: 20px;
+
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 17px;
+	font-family: Segoe UI;
+}
+
+.input-button:hover{
+	cursor: pointer;
+}
+
+.input-qty{
+	border-style: none none solid none;
+	background-color: #cccccc;
+	border-color: #292d43;
+	outline: none;
+}
+
+.item-info-input{
+	display: flex;
+	flex-direction: column;
+}
+
+.logo{
+	margin-left: 20px;
+	height: 8%;	
+}
+
+p{
+	margin: 7px;
+}
