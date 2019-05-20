@@ -12,9 +12,9 @@ if(isset($_POST['option'])){
 		if($option == 'other'){
 			header('Location: ' . '../pages/tables.html');
 		}else if($option == 'store'){
-			header('Location: ' . '../pages/store.html?search=' . $value);
+			header('Location: ' . '../pages/stores.html?search=' . $value);
 		}else if($option == 'product'){
-			header('Location: ' . '../pages/product.html?search=' . $value);
+			header('Location: ' . '../pages/locations.html?search=' . $value);
 		}
 	}
 
