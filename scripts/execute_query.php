@@ -42,4 +42,13 @@ function get_stores($conn, $item){
 	return $result;
 }
 
+function get_info_item($conn, $id_item){
+	$sql = 'select * from products where products.id_product = ' . $id_item;
+	$statement = oci_parse($conn, $sql);
+
+	oci_execute($statement);
+
+	return $statement; 
+}
+
 ?>
