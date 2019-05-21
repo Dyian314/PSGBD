@@ -1,0 +1,46 @@
+body{
+	background-color: #292d43;
+}
+
+.main{
+	display: flex;
+	flex-direction: column;
+
+	height: 100%;
+}
+
+.navbar{
+	flex: 5%;
+}
+
+.main-frame{
+	flex: 90%;
+	height: 80%;
+	margin: 50px;
+}
+
+.infotable{
+	height: 50%;
+	margin-top: 30px;
+}
+
+.table{
+	display: flex;
+	flex-direction: row;
+
+	background-color: #cccccc;
+	width: 90%;
+	margin-left: 5%;
+}
+
+.items{
+	font-family: Segoe UI;
+	font-size: 25px;
+	border: solid 1px;
+	flex: 32%;
+	text-align: center;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+ 	overflow: hidden;
+}

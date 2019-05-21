@@ -1,3 +1,18 @@
+<?php
+
+include '../scripts/connect.php';
+include '../scripts/execute_query.php';
+
+if(isset($_POST['qty']) and isset($_POST['cardnumber'])){
+	$conn = connect(); 
+	$result = new_transaction($conn, $_GET['id_store'], $_GET['id_product'], $_POST['cardnumber'], $_POST['qty']);
+
+	echo json_encode($result);
+}
+
+?>
+
+
 <html>
 
 <head>
@@ -24,30 +39,34 @@
 				<div class="item-info">
 					<div class="item-info-text">
 						<?php
-							include '../scripts/connect.php';
-							include '../scripts/execute_query.php';
-
 							$conn = connect();
-							$result = get_info_item($conn, $_GET['id']);
+							$product_res = get_info_item($conn, $_GET['id_product']);
+							$store_res = get_store($conn, $_GET['id_store']);
+							$qty_res = get_qty($conn, $_GET['id_store'], $_GET['id_product']);
 
-							$row = oci_fetch_array($result, OCI_BOTH);
-							if(!$row){
+							$product = oci_fetch_array($product_res, OCI_BOTH);
+							$store = oci_fetch_array($store_res, OCI_BOTH);
+							$qty = oci_fetch_array($qty_res, OCI_BOTH);
+
+							if(!($product and $store)){
 								die();
 							}
+
 						?>
-							<p><b>Name</b> : <?= $row['NAME'] ?></p>
-							<p><b>Category</b> : <?= $row['CATEGORY'] ?></p>
-							<p><b>Quantity</b> : 696969</p>	
-							<p><b>Price</b> : <?= $row['PRICE'] ?> Lei</p>
-							<p><b>Store</b> : A store</p>
-							<p><b>Address</b> : An address</p>
-
+							<p><b>Name</b> : <?= $product['NAME'] ?></p>
+							<p><b>Category</b> : <?= $product['CATEGORY'] ?></p>
+							<p><b>Quantity</b> : <?= $qty['QTY'] ?> pieces </p>	
+							<p><b>Price</b> : $<?= $product['PRICE'] ?></p>
+							<p><b>City</b> : <?= $store['CITY'] ?></p>
+							<p><b>Address</b> : <?= $store['ADDRESS'] ?></p>
 					</div>
 
-					<div class="item-info-input">
-						<input type="text" name="qty" placeholder="Quantity" class="input-qty">
-						<input type="submit" name="qty-button" value="Place your order" class="input-button">
-					</div>
+					<form action="" method="POST">
+						<div class="item-info-input">
+							<input type="text" name="qty" placeholder="Quantity" class="input-qty">
+							<input type="text" name="cardnumber" placeholder="Card number" class="input-qty">
+							<input type="submit" name="qty-button" value="Place your order" class="input-button">
+						</div>
 				</div>
 			</div>
 		</div>

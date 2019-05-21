@@ -1,0 +1,74 @@
+<html>
+
+<head>
+	<link rel="icon" href="../images/crown-favicon.png">
+	<link rel="stylesheet" type="text/css" href=../stylesheets/store-style.css>
+
+	<title>
+		QUEEN | Search a store
+	</title>
+</head>
+
+<body>
+	<div class="main">
+		<div class="navbar">
+			<a href="index.html"><img src="../images/Logo.png" width="200px"  class="logo"></a>
+		</div>
+
+		<div class="main-frame">
+			<div class="infotable">
+			<?php
+				include '../scripts/connect.php';
+				include '../scripts/execute_query.php';
+
+				$conn = connect();
+
+				if(!isset($_GET['id_store'])){
+					die();
+				}	
+
+				$result = get_items_from_store($conn, $_GET['id_store']);
+
+				while(($row = oci_fetch_array($result, OCI_ASSOC+OCI_RETURN_NULLS)) != false){
+					if(!isset($table_columns)){
+						$table_columns = array_keys($row);
+							
+						?>
+
+						<div class="table">
+
+						<?php
+						foreach($table_columns as $column){
+						?>
+						
+							<div class="items"><b><?= $column ?></b></div>
+						<?php
+								}
+						?>
+						</div>
+
+						<?php
+							}
+						?>
+						
+
+					<div class="table">
+						<?php
+							foreach($table_columns as $column){
+						?>
+								<div class="items"><?= $row[$column] ?></div>
+						<?php
+							}
+						?>
+					</div>
+			<?php
+				}
+			?>
+
+		</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

@@ -15,6 +15,10 @@ body{
 	width: 60%;
 }
 
+.logo:hover{
+	cursor: pointer;
+}
+
 .filler{
 	flex: 1;
 }
@@ -80,4 +84,38 @@ input[type=text]{
 
 .message{
 	color: white;
+}
+
+.input-qty{
+	margin: 20px;
+}
+
+.admin-logo{
+	width: 100px;
+	position: absolute;
+	top: 85%;
+	left: 93%;
+}
+
+.admin-logo:hover{
+	cursor: pointer;
+}
+
+.table-logo{
+	width: 40px;
+	position: absolute;
+	top: 89%;
+	left: 91%;
+}
+
+.table-logo:hover{
+	cursor: pointer;
+}
+
+input[type='radio'] { 
+	transform: scale(2); 
+}
+
+.r{
+	margin-right: 20px; 
 }

@@ -21,7 +21,7 @@ body{
 
 .store{
 	width: 30%;
-	height: 200px;
+	height: 150px;
 	margin: 10px;
 	background-color: #cccccc;
 	font-family: Segoe UI;
@@ -31,6 +31,7 @@ body{
 
 .square-store{
 	margin: 10px;
+	width: 
 }
 
 .square-store:hover{
@@ -41,10 +42,6 @@ body{
 	color: white;
 	font-family: Segoe UI;
 	font-size: 200%;
-
-}
-
-.error-image{
 
 }
 
@@ -72,9 +69,3 @@ body{
 .button-home:hover{
 	cursor: pointer;
 }
-
-@media screen and (max-width: 470px){
-	.store{
-		width: 375px;
-	}
-} 

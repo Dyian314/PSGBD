@@ -1,0 +1,70 @@
+<html>
+
+
+<head>
+	<link rel="icon" href="../images/crown-favicon.png">
+	<link rel="stylesheet" type="text/css" href=../stylesheets/stores-style.css>
+
+	<title> QUEEN | Your store </title>
+</head>
+
+<body>
+<div class="store-frame">
+		<?php 
+			include '../scripts/execute_query.php';
+			include '../scripts/connect.php';
+
+			$conn = connect();
+
+			if(isset($_GET['search'])){
+				$result = get_stores($conn, $_GET['search']);
+				$empty = true;
+
+				while(($row = oci_fetch_array($result, OCI_ASSOC+OCI_RETURN_NULLS)) != false){
+					$empty = false;
+					$id_store = $row['ID_STORE'];
+
+					?>
+					<div class="store">
+						<div class="square-store" 
+							onclick="window.location.replace('store.html?id_store=<?php echo $id_store; ?>');">
+							<b>City</b> : <?= $row['CITY'] ?><br>
+							<b>Address</b> : <?= $row['ADDRESS'] ?><br>
+						</div>
+					</div>
+					
+				<?php
+				}
+
+				if($empty){
+				?>
+					<div class="error">
+						<div class="error-image">
+							<img src="../images/error-not-found.png">
+						</div>
+
+						<div class="error-container">
+							<div class="error-message">
+								COULDN'T FIND YOUR ITEM '<?= $_GET['search'] ?>' IN ANY OF OUR STORES<br>
+								SORRY FOR THE INCONVENIENCE :(
+							</div>
+
+							<form action="index.html">
+							    <input type="submit" class="button-home" value="Take me home"/>
+							</form>
+						</div>
+							
+					</div>
+					
+				<?php
+				}
+
+			}else{
+				header('Location: ' . '../pages/index.html');
+			}
+		?>
+	</div>		
+</body>
+
+
+</html>

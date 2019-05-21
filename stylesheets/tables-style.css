@@ -34,7 +34,7 @@ body{
 .items{
 	font-family: Segoe UI;
 	font-size: 25px;
-	border: solid;
+	border: solid 1px;
 	flex: 32%;
 	text-align: center;
 

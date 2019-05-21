@@ -19,17 +19,18 @@
 			$conn = connect();
 
 			if(isset($_GET['search'])){
-				$result = get_stores($conn, $_GET['search']);
+				$result = get_items($conn, $_GET['search']);
 				$empty = true;
 
 				while(($row = oci_fetch_array($result, OCI_ASSOC+OCI_RETURN_NULLS)) != false){
 					$empty = false;
-					$id = $row['ID_PRODUCT'];
+					$id_product = $row['ID_PRODUCT'];
+					$id_store = $row['ID_STORE'];
 
 					?>
 					<div class="store">
 						<div class="square-store" 
-							onclick="window.location.replace('item.html?id=<?php echo $id; ?>');">
+							onclick="window.location.replace('item.html?id_product=<?php echo $id_product; ?>&id_store=<?php echo $id_store; ?>');">
 							<b>Product</b> : <?= $_GET['search'] ?><br>
 							<b>City</b> : <?= $row['CITY'] ?><br>
 							<b>Address</b> : <?= $row['ADDRESS'] ?><br>
